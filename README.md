@@ -1,4 +1,5 @@
 <h1>Wazuh Home Lab</h1>
+<a href="https://drive.google.com/file/d/1AOdPrd0vHgvn7jLvgaBpopoZYSuwUPRX/view?usp=sharing">.pdf version</a>
 
 <h2>Description</h2>
 In this project, I configured Wazuh, a free and open-source SIEM and XDR. I set up four virtual machines to simulate a small network. I used an Ubuntu 22.04 machine to act as the Wazuh server, and then used an Ubuntu 22.04, Windows 10 Pro, and Windows 11 machine to act as the Wazuh agents.
