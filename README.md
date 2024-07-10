@@ -24,43 +24,64 @@ I documented my progress with screenshots from the dashboard, showing the releva
 - Windows
 - Virtualization
 
-<h2>Environments Used </h2>
+<h2>Environments Used</h2>
 
 - Ubuntu 22.04
 - Windows 10 Pro
 - Windows 11
 
 <h2>Walkthrough</h2>
-1. <b> Blocking a known malicious actor </b> 
-  <br /> <br />
-2. <b> File integrity monitoring </b> 
-  <br /> <br />
-3. <b> Detecting a brute-force attack </b> 
-  <br /> <br />
-4. <b> Monitoring Docker events </b> 
-  <br /> <br />
-5. <b> Monitoring AWS infrastructure </b> 
-  <br /> <br />
-6. <b> Detecting unauthorized processes </b> 
-  <br /> <br />
-7. <b> Network IDS integration </b> 
-  <br /> <br />
-8. <b> Detecting an SQL injection attack </b> 
-  <br /> <br />
-9. <b> Detecting suspicious binaries </b> 
-  <br /> <br />
-10. <b> Detecting and removing malware using VirusTotal integration </b> 
-  <br /> <br />
-11. <b> Vulnerability detection </b> 
-  <br /> <br />
-12. <b> Detecting malware using Yara integration </b> 
-  <br /> <br />
-13. <b> Detecting hidden processes </b> 
-  <br /> <br />
-14. <b> Monitoring execution of malicious commands </b> 
-  <br /> <br />
-15. <b> Detecting a Shellshock attack </b> 
-  <br /> <br />
+
+<h3>1. Blocking a known malicious actor</h3> 
+<p align="center">
+<img src="https://i.imgur.com/1UgWyu9.png"/>
+<p align="center">
+<img src="https://i.imgur.com/EkqN8u7.png"/>
+    
+<h3>2. File integrity monitoring</h3> 
+<p align="center">
+<img src="https://i.imgur.com/J6s4a3o.png"/>
+<p align="center">
+<img src="https://i.imgur.com/wSEBWUt.png"/>
+
+<h3>3. Detecting a brute-force attack </h3> 
+
+  
+<h3>4. Monitoring Docker events</h3>
+
+  
+<h3>5. Monitoring AWS infrastructure</h3>
+
+  
+<h3>6. Detecting unauthorized processes</h3>
+
+  
+<h3>7. Network IDS integration</h3>
+
+  
+<h3>8. Detecting an SQL injection attack</h3>
+
+  
+<h3>9. Detecting suspicious binaries</h3> 
+
+  
+<h3>10. Detecting and removing malware using VirusTotal integration</h3>
+
+  
+<h3>11. Vulnerability detection</h3>
+
+  
+<h3>12. Detecting malware using Yara integration</h3>
+
+  
+<h3>13. Detecting hidden processes</h3>
+
+  
+<h3>14. Monitoring execution of malicious commands</h3>
+
+  
+<h3>15. Detecting a Shellshock attack</h3>
+
 
 <!--
 
@@ -69,6 +90,8 @@ I documented my progress with screenshots from the dashboard, showing the releva
 <p align="center">
 <img src="" height="80%" width="80%"/>
 
+<p align="center">
+<img src=""/>
 
 <p align="center">
 Launch the utility: <br/>
