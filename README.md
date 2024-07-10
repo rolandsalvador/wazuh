@@ -45,43 +45,68 @@ I documented my progress with screenshots from the dashboard, showing the releva
 <img src="https://i.imgur.com/wSEBWUt.png"/>
 
 <h3>3. Detecting a brute-force attack </h3> 
-
+<p align="center">
+<img src="https://i.imgur.com/AbPiB8U.png"/>
+<p align="center">
+<img src="https://i.imgur.com/xfxx2hl.png"/>
   
 <h3>4. Monitoring Docker events</h3>
-
+<p align="center">
+<img src="https://i.imgur.com/bECeVm2.png"/>
   
 <h3>5. Monitoring AWS infrastructure</h3>
-
+<p align="center">
+<img src="https://i.imgur.com/dtnvu6r.png"/>
   
 <h3>6. Detecting unauthorized processes</h3>
-
+<p align="center">
+<img src="https://i.imgur.com/wkKvy60.png"/>
   
 <h3>7. Network IDS integration</h3>
-
+<p align="center">
+<img src="https://i.imgur.com/tHHU44s.png"/>
   
 <h3>8. Detecting an SQL injection attack</h3>
-
+<p align="center">
+<img src="https://i.imgur.com/hzH44P5.png"/>
   
 <h3>9. Detecting suspicious binaries</h3> 
-
+<p align="center">
+<img src="https://i.imgur.com/PAZENv6.png"/>
   
 <h3>10. Detecting and removing malware using VirusTotal integration</h3>
-
+<p align="center">
+<img src="https://i.imgur.com/Adqh7nF.png"/>
+<p align="center">
+<img src="https://i.imgur.com/F2QPyBp.png"/>
+<p align="center">
+<img src="https://i.imgur.com/daum4C4.png"/>
+<p align="center">
+<img src="https://i.imgur.com/GEq3ibR.png"/>
   
 <h3>11. Vulnerability detection</h3>
-
+<p align="center">
+<img src="https://i.imgur.com/N0VBLdD.png"/>
   
 <h3>12. Detecting malware using Yara integration</h3>
-
+<p align="center">
+<img src="https://i.imgur.com/JsybW5e.png"/>
+<p align="center">
+<img src="https://i.imgur.com/UGs8iM0.png"/>
   
 <h3>13. Detecting hidden processes</h3>
-
+<p align="center">
+<img src="https://i.imgur.com/zojhCcX.png"/>
   
 <h3>14. Monitoring execution of malicious commands</h3>
-
+<p align="center">
+<img src="https://i.imgur.com/55iOX1I.png"/>
   
 <h3>15. Detecting a Shellshock attack</h3>
-
+<p align="center">
+<img src="https://i.imgur.com/AQwKkoU.png"/>
+<p align="center">
+<img src="https://i.imgur.com/AUVVBCI.png"/>
 
 <!--
 
