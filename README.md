@@ -1,4 +1,4 @@
-<h1>Wazuh Home Lab</h1>
+<h1>Wazuh SIEM/XDR Home Lab</h1>
 <a href="https://drive.google.com/file/d/1AOdPrd0vHgvn7jLvgaBpopoZYSuwUPRX/view?usp=sharing">pdf version</a>
 
 <h2>Description</h2>
@@ -8,7 +8,25 @@ In this project, I configured Wazuh, a free and open-source SIEM and XDR. I set 
 <br />
 <img src="https://i.imgur.com/CcWp3pN.png"/>
 
-After setting everything up, I followed all the example scenarios included in the Wazuh <a href="https://documentation.wazuh.com/4.5/proof-of-concept-guide/index.html">proof of concept documentation</a>. This provided me with great hands-on learning about configuring a SIEM server, setting up rules, and monitoring endpoints. Additionally, I was able to set up integration with third-party tools such as AWS, VirusTotal, Suricata, and Yara. The full list of scenarios I practiced with is provided below.
+After setting everything up, I followed all the example scenarios included in the Wazuh <a href="https://documentation.wazuh.com/4.5/proof-of-concept-guide/index.html">proof of concept documentation</a>. This provided me with great hands-on learning about configuring a SIEM server, setting up rules, and monitoring endpoints. Additionally, I was able to set up integration with third-party tools such as AWS, VirusTotal, Suricata, and Yara.
+
+I documented my progress with screenshots from the dashboard, showing the relevant events in each scenario. I enjoyed configuring everything and seeing how it all comes together. My next steps in this project are to harden each machine according to CIS benchmark standards and regulatory compliance standards such as NIST 800-53 and PCI DSS. Thank you for taking a look!
+
+<h2>Skills Used</h2>
+
+- SIEM
+- XDR
+- Linux
+- Windows
+- Virtualization
+
+<h2>Environments Used</h2>
+
+- Ubuntu 22.04
+- Windows 10 Pro
+- Windows 11
+
+<h2>Contents</h2>
 
 [1. Blocking a known malicious actor](#1-blocking-a-known-malicious-actor)<br />
 [2. File integrity monitoring](#2-file-integrity-monitoring)<br />
@@ -25,22 +43,6 @@ After setting everything up, I followed all the example scenarios included in th
 [13. Detecting hidden processes](#13-detecting-hidden-processes)<br />
 [14. Monitoring execution of malicious commands](#14-monitoring-execution-of-malicious-commands)<br />
 [15. Detecting a Shellshock attack](#15-detecting-a-shellshock-attack)<br />
-<br />
-I documented my progress with screenshots from the dashboard, showing the relevant events in each scenario. I enjoyed configuring everything and seeing how it all comes together. My next steps in this project are to harden each machine according to CIS benchmark standards and regulatory compliance standards such as NIST 800-53 and PCI DSS. Thank you for taking a look!
-
-<h2>Skills Used</h2>
-
-- SIEM
-- XDR
-- Linux
-- Windows
-- Virtualization
-
-<h2>Environments Used</h2>
-
-- Ubuntu 22.04
-- Windows 10 Pro
-- Windows 11
 
 <h2>Walkthrough</h2>
 
