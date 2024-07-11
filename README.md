@@ -34,48 +34,113 @@ I documented my progress with screenshots from the dashboard, showing the releva
 <h2>Walkthrough</h2>
 
 <h3>1. Blocking a known malicious actor</h3> 
+I set up an Apache webserver on the Ubuntu and Windows endpoints. Using another Ubuntu endpoint to act as the attacker, I tried to access the endpoints using the curl command.
+<br />
+<br />
+To demonstrate blocking a known malicious actor, I appended the attacker Ubuntu machine’s IP address to a IP reputation database that I downloaded.
+<br />
+<br />
+Once I tried to curl the endpoint’s Apache server on the attacker machine, it was blocked for 60 seconds.
+<br />
+<br />
 <p align="center">
 <img src="https://i.imgur.com/1UgWyu9.png"/>
 <p align="center">
 <img src="https://i.imgur.com/EkqN8u7.png"/>
     
 <h3>2. File integrity monitoring</h3> 
+Wazuh has a built-in file integrity monitoring (FIM) module that tracks the creation, modification, and deletion of files on the endpoints. This helps in auditing important files and meeting compliance standards.
+<br />
+<br />
+To enable FIM on the endpoints, I edited the ossec.conf configuration files to include the /root directory on Ubuntu and Downloads folder on Windows. To confirm it was working, I created, modified, and deleted files in the monitored directories.
+<br />
+<br />
 <p align="center">
 <img src="https://i.imgur.com/J6s4a3o.png"/>
 <p align="center">
 <img src="https://i.imgur.com/wSEBWUt.png"/>
 
 <h3>3. Detecting a brute-force attack </h3> 
+Wazuh detects brute-force attacks automatically by correlating multiple authentication failure events. 
+<br />
+<br />
+To emulate a brute-force attack, I used the Hydra tool on an Ubuntu endpoint. After creating a text file with 10 random passwords, I initiated a brute-force attack on the Ubuntu and Windows endpoints.
+<br />
+<br />
 <p align="center">
 <img src="https://i.imgur.com/AbPiB8U.png"/>
 <p align="center">
 <img src="https://i.imgur.com/xfxx2hl.png"/>
   
 <h3>4. Monitoring Docker events</h3>
+Wazuh includes a module to monitor Docker events in real-time. After configuring Docker on the Ubuntu endpoint, I edited the ossec.conf configuration file to enable the “docker-listener” module.
+<br />
+<br />
+As a test, I performed Docker actions like pulling an image, starting an instance, and deleting the container.
+<br />
+<br />
 <p align="center">
 <img src="https://i.imgur.com/bECeVm2.png"/>
   
 <h3>5. Monitoring AWS infrastructure</h3>
+Wazuh includes a module for monitoring AWS infrastructure. It analyzes log data stored in an S3 bucket to identify security incidents from different AWS services.
+<br />
+<br />
+After configuring an AWS account, I created a Cloudtrail trail and attached an S3 bucket to it. Then I enabled the AWS module in the ossec.conf configuration file. This required me to configure and add the AWS credentials so that Wazuh had sufficient permissions. 
+<br />
+<br />
+To test, I created and deleted a user once everything was all set up. 
+<br />
+<br />
 <p align="center">
 <img src="https://i.imgur.com/dtnvu6r.png"/>
   
 <h3>6. Detecting unauthorized processes</h3>
+Wazuh can periodically get a list of all running processes on the endpoint, which can be configured in the ossec.conf file. 
+<br />
+<br />
+On the Wazuh server, I added a rule in the local_rules.xml file to trigger every time the Netcat program launches.
+<br />
+<br />
+On the Ubuntu endpoint, I ran a Netcat command to trigger an event on the Wazuh dashboard.
+<br />
+<br />
 <p align="center">
 <img src="https://i.imgur.com/wkKvy60.png"/>
   
 <h3>7. Network IDS integration</h3>
+In this scenario, I integrated Suricata, a NIDS, with Wazuh. After installing it on the Ubuntu endpoint, I downloaded the Emerging Threats Suricata ruleset and modified settings in the suricata.yaml file. I set the Ubuntu endpoint IP, ruleset path, and the network interface to be monitored. Finally, I edited the ossec.conf file to allow the Wazuh agent to read Suricata log files (eve.json).
+<br />
+<br />
+To emulate an attack, I pinged the Ubuntu endpoint’s IP address from the attacker machine.
+<br />
+<br />
 <p align="center">
 <img src="https://i.imgur.com/tHHU44s.png"/>
   
 <h3>8. Detecting an SQL injection attack</h3>
+Making use of the previously setup Apache server on the Ubuntu endpoint, I configured the ossec.conf file to allow the Wazuh agent to monitor the access logs of the Apache server.
+<br />
+<br />
+On the attacker machine, I emulated a SQL injection using the command:
+<br />
+<i>curl -XGET "http://<UBUNTU_IP>/users/?id=SELECT+*+FROM+users";</i>
+<br />
+<br />
 <p align="center">
 <img src="https://i.imgur.com/hzH44P5.png"/>
   
 <h3>9. Detecting suspicious binaries</h3> 
+
+<br />
+<br />
 <p align="center">
 <img src="https://i.imgur.com/PAZENv6.png"/>
   
 <h3>10. Detecting and removing malware using VirusTotal integration</h3>
+
+<br />
+<br />
 <p align="center">
 <img src="https://i.imgur.com/Adqh7nF.png"/>
 <p align="center">
@@ -86,65 +151,40 @@ I documented my progress with screenshots from the dashboard, showing the releva
 <img src="https://i.imgur.com/GEq3ibR.png"/>
   
 <h3>11. Vulnerability detection</h3>
+
+<br />
+<br />
 <p align="center">
 <img src="https://i.imgur.com/N0VBLdD.png"/>
   
 <h3>12. Detecting malware using Yara integration</h3>
+
+<br />
+<br />
 <p align="center">
 <img src="https://i.imgur.com/JsybW5e.png"/>
 <p align="center">
 <img src="https://i.imgur.com/UGs8iM0.png"/>
   
 <h3>13. Detecting hidden processes</h3>
+
+<br />
+<br />
 <p align="center">
 <img src="https://i.imgur.com/zojhCcX.png"/>
   
 <h3>14. Monitoring execution of malicious commands</h3>
+
+<br />
+<br />
 <p align="center">
 <img src="https://i.imgur.com/55iOX1I.png"/>
   
 <h3>15. Detecting a Shellshock attack</h3>
+
+<br />
+<br />
 <p align="center">
 <img src="https://i.imgur.com/AQwKkoU.png"/>
 <p align="center">
 <img src="https://i.imgur.com/AUVVBCI.png"/>
-
-<!--
-
-<br />
-<br />
-<p align="center">
-<img src="" height="80%" width="80%"/>
-
-<p align="center">
-<img src=""/>
-
-<p align="center">
-Launch the utility: <br/>
-<img src="https://i.imgur.com/62TgaWL.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Select the disk:  <br/>
-<img src="https://i.imgur.com/tcTyMUE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Enter the number of passes: <br/>
-<img src="https://i.imgur.com/nCIbXbg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Confirm your selection:  <br/>
-<img src="https://i.imgur.com/cdFHBiU.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Wait for process to complete (may take some time):  <br/>
-<img src="https://i.imgur.com/JL945Ga.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Sanitization complete:  <br/>
-<img src="https://i.imgur.com/K71yaM2.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Observe the wiped disk:  <br/>
-<img src="https://i.imgur.com/AeZkvFQ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
---!>
