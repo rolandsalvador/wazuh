@@ -11,8 +11,8 @@ In this project, I configured Wazuh, a free and open-source SIEM and XDR. I set 
 
 After setting everything up, I followed all the example scenarios included in the Wazuh <a href="https://documentation.wazuh.com/4.5/proof-of-concept-guide/index.html">proof of concept documentation</a>. This provided me with great hands-on learning about configuring a SIEM server, setting up rules, and monitoring endpoints. Additionally, I was able to set up integration with third-party tools such as AWS, VirusTotal, Suricata, and Yara. The full list of scenarios I practiced with is provided below.
 
-[1. Blocking a known malicious actor](https://github.com/rolandsalvador/wazuh#1-blocking-a-known-malicious-actor)<br />
-2. File integrity monitoring<br />
+[1. Blocking a known malicious actor](#1-blocking-a-known-malicious-actor)<br />
+[2. File integrity monitoring](#2-file-integrity-monitoring)<br />
 3. Detecting a brute-force attack<br />
 4. Monitoring Docker events<br />
 5. Monitoring AWS infrastructure<br />
