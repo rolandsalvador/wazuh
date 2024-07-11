@@ -56,6 +56,8 @@ Once I tried to curl the endpoint’s Apache server on the attacker machine, it 
 <br />
 <img src="https://i.imgur.com/1UgWyu9.png"/>
 <img src="https://i.imgur.com/EkqN8u7.png"/>
+
+[Back to top](#wazuh-home-lab)
     
 <h3>2. File integrity monitoring</h3> 
 Wazuh has a built-in file integrity monitoring (FIM) module that tracks the creation, modification, and deletion of files on the endpoints. This helps in auditing important files and meeting compliance standards.
