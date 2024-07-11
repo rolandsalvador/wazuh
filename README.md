@@ -69,6 +69,8 @@ To enable FIM on the endpoints, I edited the ossec.conf configuration files to i
 <img src="https://i.imgur.com/J6s4a3o.png"/>
 <img src="https://i.imgur.com/wSEBWUt.png"/>
 
+[Back to top](#wazuh-home-lab)
+
 <h3>3. Detecting a brute-force attack</h3> 
 Wazuh detects brute-force attacks automatically by correlating multiple authentication failure events. 
 <br />
@@ -78,6 +80,8 @@ To emulate a brute-force attack, I used the Hydra tool on an Ubuntu endpoint. Af
 <br />
 <img src="https://i.imgur.com/AbPiB8U.png"/>
 <img src="https://i.imgur.com/xfxx2hl.png"/>
+
+[Back to top](#wazuh-home-lab)
   
 <h3>4. Monitoring Docker events</h3>
 Wazuh includes a module to monitor Docker events in real-time. After configuring Docker on the Ubuntu endpoint, I edited the ossec.conf configuration file to enable the “docker-listener” module.
@@ -87,6 +91,8 @@ As a test, I performed Docker actions like pulling an image, starting an instanc
 <br />
 <br />
 <img src="https://i.imgur.com/bECeVm2.png"/>
+
+[Back to top](#wazuh-home-lab)
   
 <h3>5. Monitoring AWS infrastructure</h3>
 Wazuh includes a module for monitoring AWS infrastructure. It analyzes log data stored in an S3 bucket to identify security incidents from different AWS services.
@@ -99,6 +105,8 @@ To test, I created and deleted a user once everything was all set up.
 <br />
 <br />
 <img src="https://i.imgur.com/dtnvu6r.png"/>
+
+[Back to top](#wazuh-home-lab)
   
 <h3>6. Detecting unauthorized processes</h3>
 Wazuh can periodically get a list of all running processes on the endpoint, which can be configured in the ossec.conf file. 
@@ -111,6 +119,8 @@ On the Ubuntu endpoint, I ran a Netcat command to trigger an event on the Wazuh 
 <br />
 <br />
 <img src="https://i.imgur.com/wkKvy60.png"/>
+
+[Back to top](#wazuh-home-lab)
   
 <h3>7. Network IDS integration</h3>
 In this scenario, I integrated Suricata, a NIDS, with Wazuh. After installing it on the Ubuntu endpoint, I downloaded the Emerging Threats Suricata ruleset and modified settings in the suricata.yaml file. I set the Ubuntu endpoint IP, ruleset path, and the network interface to be monitored. Finally, I edited the ossec.conf file to allow the Wazuh agent to read Suricata log files (eve.json).
@@ -120,6 +130,8 @@ To emulate an attack, I pinged the Ubuntu endpoint’s IP address from the attac
 <br />
 <br />
 <img src="https://i.imgur.com/tHHU44s.png"/>
+
+[Back to top](#wazuh-home-lab)
   
 <h3>8. Detecting an SQL injection attack</h3>
 Making use of the previously setup Apache server on the Ubuntu endpoint, I configured the ossec.conf file to allow the Wazuh agent to monitor the access logs of the Apache server.
@@ -131,6 +143,8 @@ On the attacker machine, I emulated a SQL injection using the command:
 <br />
 <br />
 <img src="https://i.imgur.com/hzH44P5.png"/>
+
+[Back to top](#wazuh-home-lab)
   
 <h3>9. Detecting suspicious binaries</h3> 
 Wazuh has the ability to detect suspicious binaries on an endpoint. I configured the Ubuntu endpoint’s ossec.conf file to enable the rootcheck module.
@@ -149,6 +163,8 @@ EOF
 <br />
 <br />
 <img src="https://i.imgur.com/PAZENv6.png"/>
+
+[Back to top](#wazuh-home-lab)
   
 <h3>10. Detecting and removing malware using VirusTotal integration</h3>
 Wazuh can integrate with third-party services such as VirusTotal to enhance security capabilities. VirusTotal analyses suspicious files and URLs for malware using antivirus and website scanners.
@@ -164,12 +180,16 @@ After adding rules to the Wazuh server’s local_rules.xml file and enabling FIM
 <img src="https://i.imgur.com/F2QPyBp.png"/>
 <img src="https://i.imgur.com/daum4C4.png"/>
 <img src="https://i.imgur.com/GEq3ibR.png"/>
+
+[Back to top](#wazuh-home-lab)
   
 <h3>11. Vulnerability detection</h3>
 After enabling the vulnerability detection module, Wazuh automatically identifies vulnerabilities on the endpoints. Scans are completed periodically for applications and operating systems on the endpoints according to the CVE database.
 <br />
 <br />
 <img src="https://i.imgur.com/N0VBLdD.png"/>
+
+[Back to top](#wazuh-home-lab)
   
 <h3>12. Detecting malware using Yara integration</h3>
 Yara is another example of a possible integration with Wazuh. In this case, it’s used to detect malware on the Ubuntu and Windows endpoints.
@@ -181,6 +201,8 @@ To emulate an attack, I downloaded malware samples that the Wazuh documentation 
 <br />
 <img src="https://i.imgur.com/JsybW5e.png"/>
 <img src="https://i.imgur.com/UGs8iM0.png"/>
+
+[Back to top](#wazuh-home-lab)
   
 <h3>13. Detecting hidden processes</h3>
 Wazuh can detect hidden processes. In this scenario, a hidden kernel-mode rootkit is used on an Ubuntu endpoint. Wazuh detects it using setsid(), getpid(), and kill() system calls.
@@ -193,6 +215,8 @@ Running the kill signal 63 with the PID of a random process unhides the Diamorph
 <br />
 <br />
 <img src="https://i.imgur.com/zojhCcX.png"/>
+
+[Back to top](#wazuh-home-lab)
   
 <h3>14. Monitoring execution of malicious commands</h3>
 In this scenario, Auditd logs are analyzed by the Wazuh agent for malicious command execution. This can be configured in the ossec.conf file after installing and configuring Auditd.
@@ -205,6 +229,8 @@ To test the configuration, Netcat, a red program, is installed and run on the Ub
 <br />
 <br />
 <img src="https://i.imgur.com/55iOX1I.png"/>
+
+[Back to top](#wazuh-home-lab)
   
 <h3>15. Detecting a Shellshock attack</h3>
 To detect a Shellshock attack, Wazuh analyzes web server logs collected from an endpoint. I made use of the Apache server on the Ubuntu endpoint again.
@@ -219,3 +245,5 @@ sudo curl -H "User-Agent: () { :; }; /bin/cat /etc/passwd" (WEBSERVER-IP)
 <br />
 <img src="https://i.imgur.com/AQwKkoU.png"/>
 <img src="https://i.imgur.com/AUVVBCI.png"/>
+
+[Back to top](#wazuh-home-lab)
