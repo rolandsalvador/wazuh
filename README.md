@@ -11,10 +11,22 @@ In this project, I configured Wazuh, a free and open-source SIEM and XDR. I set 
 
 After setting everything up, I followed all the example scenarios included in the Wazuh <a href="https://documentation.wazuh.com/4.5/proof-of-concept-guide/index.html">proof of concept documentation</a>. This provided me with great hands-on learning about configuring a SIEM server, setting up rules, and monitoring endpoints. Additionally, I was able to set up integration with third-party tools such as AWS, VirusTotal, Suricata, and Yara. The full list of scenarios I practiced with is provided below.
 
+[1. Blocking a known malicious actor](https://github.com/rolandsalvador/wazuh#1-blocking-a-known-malicious-actor)<br />
+2. File integrity monitoring<br />
+3. Detecting a brute-force attack<br />
+4. Monitoring Docker events<br />
+5. Monitoring AWS infrastructure<br />
+6. Detecting unauthorized processes<br />
+7. Network IDS integration<br />
+8. Detecting an SQL injection attack<br />
+9. Detecting suspicious binaries<br />
+10. Detecting and removing malware using VirusTotal integration<br />
+11. Vulnerability detection<br />
+12. Detecting malware using Yara integration<br />
+13. Detecting hidden processes<br />
+14. Monitoring execution of malicious commands<br />
+15. Detecting a Shellshock attack<br />
 <br />
-<p align="center">
-<img src="https://i.imgur.com/dijTHH4.png" height="50%" width="50%"/>
-
 I documented my progress with screenshots from the dashboard, showing the relevant events in each scenario. I enjoyed configuring everything and seeing how it all comes together. My next steps in this project are to harden each machine according to CIS benchmark standards and regulatory compliance standards such as NIST 800-53 and PCI DSS. Thank you for taking a look!
 
 <h2>Skills Used</h2>
@@ -60,7 +72,7 @@ To enable FIM on the endpoints, I edited the ossec.conf configuration files to i
 <p align="center">
 <img src="https://i.imgur.com/wSEBWUt.png"/>
 
-<h3>3. Detecting a brute-force attack </h3> 
+<h3>3. Detecting a brute-force attack</h3> 
 Wazuh detects brute-force attacks automatically by correlating multiple authentication failure events. 
 <br />
 <br />
