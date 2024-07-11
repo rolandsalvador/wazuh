@@ -1,4 +1,4 @@
-<h1>Wazuh SIEM/XDR Home Lab</h1>
+<h1>Wazuh SIEM/XDR Complete Home Lab</h1>
 <a href="https://drive.google.com/file/d/1AOdPrd0vHgvn7jLvgaBpopoZYSuwUPRX/view?usp=sharing">pdf version</a>
 
 <h2>Description</h2>
