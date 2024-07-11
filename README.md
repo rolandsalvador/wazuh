@@ -131,14 +131,32 @@ On the attacker machine, I emulated a SQL injection using the command:
 <img src="https://i.imgur.com/hzH44P5.png"/>
   
 <h3>9. Detecting suspicious binaries</h3> 
-
+Wazuh has the ability to detect suspicious binaries on an endpoint. I configured the Ubuntu endpoint’s ossec.conf file to enable the rootcheck module.
+<br />
+<br />
+To emulate a suspicious binary, I created a copy of the original system binary (/usr/bin/w) and replaced it with the following shell script:
+<i>
+sudo tee /usr/bin/w << EOF
+!/bin/bash <br />
+echo "`date` this is evil" > /tmp/trojan_created_file <br />
+echo 'test for /usr/bin/w trojaned file' >> /tmp/trojan_created_file <br />
+Now running original binary <br />
+/usr/bin/w.copy <br />
+EOF 
+</i>
 <br />
 <br />
 <p align="center">
 <img src="https://i.imgur.com/PAZENv6.png"/>
   
 <h3>10. Detecting and removing malware using VirusTotal integration</h3>
-
+Wazuh can integrate with third-party services such as VirusTotal to enhance security capabilities. VirusTotal analyses suspicious files and URLs for malware using antivirus and website scanners.
+<br />
+<br />
+In the Wazuh documentation, they graciously provide active response scripts for Ubuntu and Windows endpoints to remove malicious files. 
+<br />
+<br />
+After adding rules to the Wazuh server’s local_rules.xml file and enabling FIM on the endpoint’s target directories, I downloaded an EICAR test malware files on the endpoints.
 <br />
 <br />
 <p align="center">
@@ -151,14 +169,18 @@ On the attacker machine, I emulated a SQL injection using the command:
 <img src="https://i.imgur.com/GEq3ibR.png"/>
   
 <h3>11. Vulnerability detection</h3>
-
+After enabling the vulnerability detection module, Wazuh automatically identifies vulnerabilities on the endpoints. Scans are completed periodically for applications and operating systems on the endpoints according to the CVE database.
 <br />
 <br />
 <p align="center">
 <img src="https://i.imgur.com/N0VBLdD.png"/>
   
 <h3>12. Detecting malware using Yara integration</h3>
-
+Yara is another example of a possible integration with Wazuh. In this case, it’s used to detect malware on the Ubuntu and Windows endpoints.
+After Yara is installed and configured, the appropriate rules are created on the Wazuh server. 
+<br />
+<br />
+To emulate an attack, I downloaded malware samples that the Wazuh documentation provides through scripts.
 <br />
 <br />
 <p align="center">
@@ -167,21 +189,40 @@ On the attacker machine, I emulated a SQL injection using the command:
 <img src="https://i.imgur.com/UGs8iM0.png"/>
   
 <h3>13. Detecting hidden processes</h3>
-
+Wazuh can detect hidden processes. In this scenario, a hidden kernel-mode rootkit is used on an Ubuntu endpoint. Wazuh detects it using setsid(), getpid(), and kill() system calls.
+<br />
+<br />
+After updating the Ubuntu endpoint’s kernel and editing the ossec.conf file to run rootcheck scans every 2 minutes, the Diamorphine rootkit was run on the machine. 
+<br />
+<br />
+Running the kill signal 63 with the PID of a random process unhides the Diamorphine rootkit. Running the kill signal 31 hides or unhides any process, which Wazuh recognizes as an anomaly.
 <br />
 <br />
 <p align="center">
 <img src="https://i.imgur.com/zojhCcX.png"/>
   
 <h3>14. Monitoring execution of malicious commands</h3>
-
+In this scenario, Auditd logs are analyzed by the Wazuh agent for malicious command execution. This can be configured in the ossec.conf file after installing and configuring Auditd.
+<br />
+<br />
+On the Wazuh server, a list of suspicious programs is created and added to the ruleset section in the ossec.conf file. Ncat is set to yellow, nc is set to red, and tcpdump is set to orange. Finally, a rule is created in the local_rules.xml file to activate when a red program is executed.
+<br />
+<br />
+To test the configuration, Netcat, a red program, is installed and run on the Ubuntu endpoint.
 <br />
 <br />
 <p align="center">
 <img src="https://i.imgur.com/55iOX1I.png"/>
   
 <h3>15. Detecting a Shellshock attack</h3>
-
+To detect a Shellshock attack, Wazuh analyzes web server logs collected from an endpoint. I made use of the Apache server on the Ubuntu endpoint again.
+<br />
+<br />
+For the attack emulation, I ran this command from the attacker machine:
+<br />
+<i>
+sudo curl -H "User-Agent: () { :; }; /bin/cat /etc/passwd" (WEBSERVER-IP)
+</i>
 <br />
 <br />
 <p align="center">
